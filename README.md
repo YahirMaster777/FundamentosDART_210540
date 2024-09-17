@@ -10,6 +10,7 @@ Proyecto de cCase para la Unidad 1 de la Asignatura de Desarrollo Móvil integra
 |2|Instalacion y Configuración del entorno de Desarrollo de Flutter/Dart|23|Activa|
 |3|Hola Mundo desde DART|10|Finalizada|
 |4|Declaracion de variables|05|Finalizada|
+|5|Declaracion de varibles con Dynamic|05|Activa|
 
 ### LISTA DE HERRAMIENTAS
 ![DART](https://img.shields.io/badge/Dart-0175C2?style-for-the-badge&logo=dart&logoColor=white)
