@@ -19,11 +19,19 @@ print(greetSomeone(-254));
 print(greetSomeone(3.1416));
 print(greetSomeone(true));
 //c) mismo experimento pero ahora con la funcion con parametros tipados
-print(greetSomeoneTyped("Marvin"));
+/*print(greetSomeoneTyped("Marvin"));
 print(greetSomeoneTyped(4));
 print(greetSomeoneTyped(-254));
 print(greetSomeoneTyped(3.1416));
-print(greetSomeoneTyped(true));
+print(greetSomeoneTyped(true));*/
+//print(greetSomeone()); no se puede ejecutar por que requiere 
+
+// impresion del saludo 
+
+ print(greetHourOfDay("Juan", null)); // Saludo basado en la hora actual
+  print(greetHourOfDay("Ana",6)); // "Buenos Días, Ana!"
+
+
 }
 
 //-------------------------------------------------Funciones y parametros -------------------------------------------------
@@ -39,7 +47,44 @@ getDayNumber(){
   return day;
 }
 
-
-dynamic greetSomeone(personName){
+String greetSomeone(personName){
   return ("Hola, ${personName}");
+}
+
+
+String greetSomeoneTyped(String personName){
+  return ("Hola, ${personName}");
+}
+
+
+//4.- funcion con paramtros opcionales 
+
+// String greetHourOfDay(String personName, DateTime ? hora){
+//   hora ??= DateTime.now();
+//   String Saludo;
+//   if (hora >= 6 && hora < 12){
+//     Saludo = "Buenos Dias";
+//   }else if(hora >12 && hora < 18){
+//     Saludo ="Buenas Tardes";
+
+//   }else if(hora > 18 && hora < 24){
+//     Saludo ="Buenas Noches";
+//   }
+
+// }
+
+String greetHourOfDay(String personName, int? hora) {
+  hora ??= DateTime.now().hour; // Si hora es nulo, se usa la hora actual
+  print("Hora:${hora}");
+  String saludo;
+
+  if (hora >= 6 && hora < 12) {
+    saludo = "Buenos Días, $personName!";
+  } else if (hora >= 12 && hora < 18) {
+    saludo = "Buenas Tardes, $personName!";
+  } else {
+    saludo = "Buenas Noches, $personName!";
+  }
+
+  return saludo; // Asegúrate de devolver el saludo
 }
