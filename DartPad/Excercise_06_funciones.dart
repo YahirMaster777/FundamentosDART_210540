@@ -1,81 +1,82 @@
-void main(){
-//1.-Llamando a una funcion sin parametros
-greetEveryone();
+void main() {
+  // 1.- Llamando a una función sin parámetros
+  greetEveryone();
 
-//2.-Llamando a una funcion que retorna valores
-//a)Almacenando el dato en una variable
-print("El dia de hoy es :${getDayNumber()} del mes");
-//b)Almacenando el valo de la funcion en una nueva variable
-final int diaMes;
-diaMes = getDayNumber();
-print("En tres dias sera ${diaMes+3}");
+  // 2.- Llamando a una función que retorna valores
+  // a) Almacenando el dato en una variable
+  print("El día de hoy es: ${getDayNumber()} del mes");
+  
+  // b) Almacenando el valor de la función en una nueva variable
+  final int diaMes = getDayNumber();
+  print("En tres días será ${diaMes + 3}");
 
-//3.- Llamando a una funcion con un solo parametro obligatorio
-//llamando correcto
-print(greetSomeone("Marvin"));
-//b)en de que la funcion este declarada con dynamic
-print(greetSomeone(4));
-print(greetSomeone(-254));
-print(greetSomeone(3.1416));
-print(greetSomeone(true));
-//c) mismo experimento pero ahora con la funcion con parametros tipados
-/*print(greetSomeoneTyped("Marvin"));
-print(greetSomeoneTyped(4));
-print(greetSomeoneTyped(-254));
-print(greetSomeoneTyped(3.1416));
-print(greetSomeoneTyped(true));*/
-//print(greetSomeone()); no se puede ejecutar por que requiere 
+  // 3.- Llamando a una función con un solo parámetro obligatorio
+  // Llamando correcto
+  print(greetSomeone("Marvin"));
+  
+  // b) En el caso de que la función esté declarada con dynamic
+  print(greetSomeone(4));
+  print(greetSomeone(-254));
+  print(greetSomeone(3.1416));
+  print(greetSomeone(true));
 
-// impresion del saludo 
+  // c) Mismo experimento pero ahora con la función con parámetros tipados
+  // print(greetSomeoneTyped("Marvin"));
+  // print(greetSomeoneTyped(4));
+  // print(greetSomeoneTyped(-254));
+  // print(greetSomeoneTyped(3.1416));
+  // print(greetSomeoneTyped(true));
 
- print(greetHourOfDay("Juan", null)); // Saludo basado en la hora actual
-  print(greetHourOfDay("Ana",6)); // "Buenos Días, Ana!"
+  // print(greetSomeone()); // No se puede ejecutar porque requiere un parámetro
 
+  // Impresión del saludo 
+  print(greetHourOfDay("Juan", null)); // Saludo basado en la hora actual
+  print(greetHourOfDay("Ana", 6)); // "Buenos Días, Ana!"
 
+  // 5.- Funciones lambda
+  var calculaCosto = (double productQuantity, double productPrice, double percentageDiscount) => 
+      (productQuantity * productPrice) * (1 - percentageDiscount / 100);
+
+  double cantidadProducto = 5;
+  double precioProducto = 125.50;
+  double descuento = 2.5;
+
+  print("""
+  ----------------Funciones Lambda---------------------------
+Costo: $precioProducto
+Cantidad: $cantidadProducto
+Descuento: $descuento
+
+-------------------------------------------
+Costo del Carrito de Compras: ${calculaCosto(cantidadProducto, precioProducto, descuento)}
+""");
 }
 
-//-------------------------------------------------Funciones y parametros -------------------------------------------------
-//declaracion
-void greetEveryone(){
+//------------------------------------------------- Funciones y parámetros -------------------------------------------------
+// Declaración
+void greetEveryone() {
   print("Hola a todos :)");
 }
 
-//Funcion que retorna datos 
-getDayNumber(){
+// Función que retorna datos 
+int getDayNumber() {
   DateTime now = DateTime.now();
   int day = now.day;
   return day;
 }
 
-String greetSomeone(personName){
-  return ("Hola, ${personName}");
+String greetSomeone(dynamic personName) {
+  return "Hola, ${personName}";
 }
 
-
-String greetSomeoneTyped(String personName){
-  return ("Hola, ${personName}");
+String greetSomeoneTyped(String personName) {
+  return "Hola, ${personName}";
 }
 
-
-//4.- funcion con paramtros opcionales 
-
-// String greetHourOfDay(String personName, DateTime ? hora){
-//   hora ??= DateTime.now();
-//   String Saludo;
-//   if (hora >= 6 && hora < 12){
-//     Saludo = "Buenos Dias";
-//   }else if(hora >12 && hora < 18){
-//     Saludo ="Buenas Tardes";
-
-//   }else if(hora > 18 && hora < 24){
-//     Saludo ="Buenas Noches";
-//   }
-
-// }
-
+// 4.- Función con parámetros opcionales 
 String greetHourOfDay(String personName, int? hora) {
   hora ??= DateTime.now().hour; // Si hora es nulo, se usa la hora actual
-  print("Hora:${hora}");
+  print("Hora: ${hora}");
   String saludo;
 
   if (hora >= 6 && hora < 12) {
