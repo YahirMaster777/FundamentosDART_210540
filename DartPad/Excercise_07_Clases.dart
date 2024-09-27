@@ -1,55 +1,56 @@
-void main() {
-  /*Declaracion de clases en dart*/
+void main(){
+   // Repaso de Clases en DART
+   // instanciamos la Clase Hero 
+    print("----------Heroe 1 -----------------");
+   final wolverine = Hero("Logan","Regeneración");
+   print(wolverine);
+   print(wolverine.name);
+   print(wolverine.power);
+    print("----------Heroe 2 -----------------");
+    final scarletWitch = Hero("Magia del Caos","Wanda");
+    print(scarletWitch);
+    print(scarletWitch.name);
+    print(scarletWitch.power);
 
-  final spiderman = Hero("Peter Parker", "Sentido Aracnido");
+    print("---------------------------");
+    final xmen = Team(type:"Heroes", name:"X-Men");
+    print(xmen);
+    print(xmen.name);
+    print(xmen.type);
 
-  final fantastic4 = Team(type: 'Heroes', name: 'Fantastic 4');
+    final justiceLeague = Team(name:"La liga de la Justicia");
+    print(justiceLeague);
+    print(justiceLeague.name);
+    print(justiceLeague.type);
 
-  final brotherhood = Team(name: "Future Foundation");
+    //invocando el metodo reeincrito con @overrride
+    print(justiceLeague.toString());
 
-  final deadpool = Hero("Wade Wilson", "Regeneracion");
-
-  final xforce = Team(type: 'Anti-heroes', name: 'X-force');
-
-
-/*primer Heroes*/
-  print('-----------SpiderMam------------');
-  print("Nombre:${spiderman.name}");
-  print("Poder:${spiderman.power}");
-  print("Tipo:${fantastic4.type}");
-  print("Nombre del Equipo:${fantastic4.name}");
-
-  print("Nombre del equipo: ${brotherhood.name}");
-  print("Tipo: ${brotherhood.type}");
-
-
-  print('-----------Deadpool------------');
-  print("Nombre:${deadpool.name}");
-  print("Poder:${deadpool.power}");
-  print("Tipo:${xforce.type}");
-  print(xforce);
-  print("Nombre del Equipo:${xforce.name}");
-
+    /*Intentamos instanciar la clase con solo el valor del tipo, que no lo permite porque la 
+    propiedad de nombre es requerida*/ 
+    //final hydra = Team(type:"Villano");
+    
 }
+//Clases con propiedades posicionales
+class Hero
+{
+    String name;
+    String power;
 
-class Hero {
-  String name;
-  String power;
-
-  Hero(String pName, String pPower)
-      : name = pName,
+    Hero(String pName, String pPower):
+        name = pName,
         power = pPower;
 }
-
-/*Clase para el definir el equipo*/
-class Team {
-  String name;
-  String type;
-
-  Team({required this.name, this.type = "No definido"});
-
-  @override
-  String toString() {
-    return 'Grupo: $name, Tipo: $type';
-  }
+//Clase con propiedades no pisicionales nombradas
+class Team
+{
+    String name;
+    String type;
+    //El comnstructor de la clase simepre debe llavr el mismo nombre de la clase
+    Team({required this.name, this.type="No definido."});
+    
+    @override
+    String toString(){
+        return 'Grupo: $name, Tipo: $type';
+    }
 }
