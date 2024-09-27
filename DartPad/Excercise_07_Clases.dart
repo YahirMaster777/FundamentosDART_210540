@@ -12,7 +12,7 @@ void main() {
   final xforce = Team(type: 'Anti-heroes', name: 'X-force');
 
 
-
+/*primer Heroes*/
   print('-----------SpiderMam------------');
   print("Nombre:${spiderman.name}");
   print("Poder:${spiderman.power}");
