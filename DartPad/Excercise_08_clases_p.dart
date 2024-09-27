@@ -1,4 +1,5 @@
 void main() {
+  // Creación de una instancia de la clase Person con valores estaticos
   final juanOliver = Person(
     ID: 1,
     name: 'Juan',
@@ -13,6 +14,7 @@ void main() {
     updatedAt: DateTime(2023, 8, 1),
   );
 
+  // impresion de los detalles de la persona
   print('ID: ${juanOliver.ID}');
   print('Nombre: ${juanOliver.name}');
   print('Apellido paterno: ${juanOliver.firstLastname}');
@@ -26,6 +28,7 @@ void main() {
   print('Última actualización: ${juanOliver.updatedAt}');
 }
 
+/// Clase de la tabla persona de la base de datos
 class Person {
   int ID;
   String? cortesyTitle;
@@ -40,6 +43,9 @@ class Person {
   DateTime createdAt;
   DateTime? updatedAt;
 
+  /// Constructor de la clase Person
+  /// Si `createdAt` no se proporciona, se asigna la fecha y hora actuales
+  
   Person({
     required this.ID,
     required this.name,
@@ -49,7 +55,7 @@ class Person {
     required this.bloodGroup,
     this.curp,
     required this.birthdate,
-    this.isActive = true,
+    this.isActive = true,  // Valor por defecto: true
     DateTime? createdAt,
     this.updatedAt,
   }) : createdAt = createdAt ?? DateTime.now();
