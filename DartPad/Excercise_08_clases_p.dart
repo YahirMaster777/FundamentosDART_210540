@@ -1,7 +1,8 @@
 void main() {
-  // Creación de una instancia de la clase Person con valores estáticos
+  // Creación de instancias de la clase Person con valores estáticos
   final juanOliver = Person(
     ID: 1,
+    cortesyTitle: "Sr.",
     name: 'Juan',
     firstLastname: 'Oliver',
     secondLastname: 'Pérez',
@@ -14,20 +15,26 @@ void main() {
     updatedAt: DateTime(2023, 8, 1),
   );
 
-  // Impresión de los detalles de la persona
+  final mariaGomez = Person(
+    ID: 2,
+    name: 'María',
+    firstLastname: 'Gómez',
+    gender: 'Femenino',
+    bloodGroup: 'A+',
+    birthdate: DateTime(1990, 5, 15),
+    // No se proporciona cortesyTitle, quedará como null
+  );
+
+  // Impresión de los detalles de las personas
   print("--------------------------------------------");
-  print("Datos de la persona");
+  print("Datos de la persona 1");
   print("--------------------------------------------");
-  print('ID: ${juanOliver.ID}');
-  print('Nombre: ${juanOliver.name}');
-  print('Apellido paterno: ${juanOliver.firstLastname}');
-  print('Apellido materno: ${juanOliver.secondLastname}');
-  print('Género: ${juanOliver.gender}');
-  print('Grupo sanguíneo: ${juanOliver.bloodGroup}');
-  print('CURP: ${juanOliver.curp}');
-  print('Fecha de nacimiento: ${formatDate(juanOliver.birthdate)}');
-  print('Activo: ${juanOliver.isActive}');
-  print('Registtrado: ${formatDate(juanOliver.createdAt)}');
+  print(juanOliver);
+  
+  print("--------------------------------------------");
+  print("Datos de la persona 2");
+  print("--------------------------------------------");
+  print(mariaGomez);
 }
 
 /// Función para formatear la fecha en el formato dd/mm/aa
@@ -54,6 +61,7 @@ class Person {
   /// Si `createdAt` no se proporciona, se asigna la fecha y hora actuales
   Person({
     required this.ID,
+    this.cortesyTitle,  // Título de cortesía opcional
     required this.name,
     required this.firstLastname,
     this.secondLastname,
@@ -65,4 +73,23 @@ class Person {
     DateTime? createdAt,
     this.updatedAt,
   }) : createdAt = createdAt ?? DateTime.now();
+
+  /// Sobrescribir el método toString para una mejor presentación
+  @override
+  String toString() {
+    return '''
+ID: $ID
+Título de cortesía: ${cortesyTitle ?? "No registrado"}
+Nombre: $name
+Apellido paterno: $firstLastname
+Apellido materno: ${secondLastname ?? "No registrado"}
+Género: $gender
+Grupo sanguíneo: $bloodGroup
+CURP: ${curp?.isNotEmpty == true ? curp : "No registrado"}
+Fecha de nacimiento: ${formatDate(birthdate)}
+Activo: ${isActive ? "Sí" : "No"}
+Registrado: ${formatDate(createdAt)}
+Última actualización: ${updatedAt != null ? formatDate(updatedAt!) : 'Sin actualizar'}
+''';
+  }
 }
