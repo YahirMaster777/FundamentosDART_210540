@@ -15,7 +15,8 @@ Proyecto de cCase para la Unidad 1 de la Asignatura de Desarrollo Móvil integra
 |7|Lista, Iterables, y conjunto de datos|09|Finalizada✅|
 |8|Funciones en Dart|11|Finalizada✅|
 |9|Clases en dart|09|Finalizada✅|
-|10|Constructores Nombrados|00|Finalizada✅|
+|10|Constructores Nombrados|08|Finalizada✅|
+|11|Getters y Setters|09|Finalizada✅|
 
 ### LISTA DE HERRAMIENTAS
 ![DART](https://img.shields.io/badge/Dart-0175C2?style-for-the-badge&logo=dart&logoColor=white)
