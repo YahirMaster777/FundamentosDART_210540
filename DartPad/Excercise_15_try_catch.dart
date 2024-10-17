@@ -34,6 +34,7 @@ Future<String> httpGet( String url ) async {
   // Simula un retardo de 1 segundo para imitar una petición HTTP
   await Future.delayed( const Duration(seconds: 1));
   
+  // Simula un error de red
   // Lanza una excepción de tipo Exception con un mensaje
   throw Exception('No hay parámetros en el URL');
   
