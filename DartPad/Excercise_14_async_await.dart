@@ -7,7 +7,7 @@ void main() async {
   try {
     // Llama a la función httpGet de manera asíncrona, esperando a que se resuelva la petición
     // y asigna el resultado a la variable 'value'
-    final value = await httpGet('https://fernando-herrera.com/cursos');
+    final value = await httpGet('https://fernando-herrera.com/flutter');
     
     // Si no hay error, imprime el valor obtenido de la función httpGet
     print( value );
