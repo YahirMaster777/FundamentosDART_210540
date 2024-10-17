@@ -1,4 +1,5 @@
 void main() {
+  //inicio del programa
   // Llama a la función emitNumbers() que devuelve un Stream y escucha los valores emitidos.
   // Cada vez que el Stream emite un valor, se ejecuta la función anónima que imprime el valor.
   emitNumbers().listen( (value) {
