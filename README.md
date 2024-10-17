@@ -21,6 +21,11 @@ Proyecto de cCase para la Unidad 1 de la Asignatura de Desarrollo Móvil integra
 |Tarea de clases abstractas|00|En curso|
 |13|Asersiones en dart|03|Finalizada✅|
 |14|Mixis en Dart|8|Finalizada✅|
+|15|Futures|5|En proceso|
+|16|async_await|5|En procesoa|
+|17|try_catch_on_finally|6|En proceso|
+|18|streams.dart|6|En proceso|
+|19|stream_await|4|En proceso|
 
 ### LISTA DE HERRAMIENTAS
 ![DART](https://img.shields.io/badge/Dart-0175C2?style-for-the-badge&logo=dart&logoColor=white)
