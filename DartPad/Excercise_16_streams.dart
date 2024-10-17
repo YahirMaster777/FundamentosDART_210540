@@ -16,5 +16,4 @@ Stream<int> emitNumbers() {
     return value;
   // El método .take(5) limita el Stream a emitir solo los primeros 5 valores.
   }).take(5);
-  
 }
